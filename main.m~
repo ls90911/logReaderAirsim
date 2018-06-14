@@ -1,0 +1,8 @@
+clear
+clc
+close all
+
+[SENSOR,GT] = readLog();
+
+
+temp =
