@@ -2,8 +2,8 @@ function [] = complementaryFilterAHRS(SENSOR,GT)
 FIGURE = 1;
 
 statesAHRS = zeros(length(SENSOR.TIME),3);
-KP = 0.01;
-KI = 0.05;
+KP = 2*0.9*0.063;
+KI = 0.063^2;
 sumError = 0;
 
 for i = 1:length(SENSOR.TIME)
