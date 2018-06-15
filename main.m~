@@ -3,6 +3,7 @@ clc
 close all
 
 [SENSOR,GT] = readLog();
-
-
-temp =
+%checkGroundTruthAngularVelocity(GT);
+% complementaryFilterAHRS(SENSOR,GT)
+kalmanFilterAHRS(SENSOR,GT);
+temp = 1;
