@@ -2,7 +2,7 @@ function [SENSOR,GT] = readLog()
 
 FIGURE = 1;
 
-sensor = csvread("log_drone.csv",2,0);
+sensor = csvread("log_drone.csv",3,0);
 
 firstGateDistance = 14.5;
 
@@ -45,6 +45,9 @@ GT.PSI = gt(:,10);
 GT.P = gt(:,11);
 GT.Q = gt(:,12);
 GT.R = gt(:,13);
+GT.AX = gt(:,17);
+GT.AY = gt(:,18);
+GT.AZ = gt(:,19);
 
 if FIGURE == 1
 figure(1)
