@@ -5,7 +5,7 @@ FIGURE = 1;
 EKF_states = zeros(length(SENSOR.TIME),6);
 P_trace = zeros(length(SENSOR.TIME),1);
 Q = diag([(0.5/180*pi)^2 (0.5/180*pi)^2 (0.5/180*pi)^2 0 0 0]);
-R = diag([(40/180*pi)^2 (40/180*pi)^2 0]);
+R = diag([(10)^2 (10)^2 0]);
 
 for i = 1:length(SENSOR.TIME)
     if i == 1
@@ -37,7 +37,8 @@ for i = 1:length(SENSOR.TIME)
     K_k = P_k_k_1*H_k'/ (H_k*P_k_k_1*H_k'+R);
     delta_x_k_k = K_k*(Z_k-Z_k_k_1');
     EKF_states(i,:) = EKF_states(i,:) + delta_x_k_k';
-    P_k_k = (eye(6)-K_k*H_k)*P_k_k_1*(eye(6)-K_k*H_k)'+K_k*R*K_k';
+    %P_k_k = (eye(6)-K_k*H_k)*P_k_k_1*(eye(6)-K_k*H_k)'+K_k*R*K_k';
+    P_k_k = (eye(6)-K_k*H_k)*P_k_k_1;
     last_updated_states_EKF = EKF_states(i,:);
     last_updated_inputs = inputs;
      P_trace(i) = trace(P_k_k);

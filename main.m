@@ -10,6 +10,6 @@ close all
 % end
 
 %checkGroundTruthAngularVelocity(GT);
-complementaryFilterAHRS(SENSOR,GT)
+%complementaryFilterAHRS(SENSOR,GT)
 kalmanFilterAHRS(SENSOR,GT);
 temp = 1;
